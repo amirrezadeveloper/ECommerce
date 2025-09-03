@@ -1,4 +1,5 @@
 ﻿using AuthService.Application.DTOs.Responses;
+using AuthService.Application.Features.Users.DTOs;
 using MediatR;
 
 
@@ -6,7 +7,13 @@ using MediatR;
 namespace AuthService.Application.Features.Users.Commands.RegisterUser;
 
 
-public record RegisterUserCommand(string Username, string Email, string Password) : IRequest<AuthResponse>;
+public class RegisterUserCommand : IRequest<UserDto>
+{
+    public string FullName { get; set; } = string.Empty;
+    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
 
 
 
